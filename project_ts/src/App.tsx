@@ -1,11 +1,12 @@
-import React from 'react';
 
-import './App.css';
+import Login from './components/login';
+import Recipe from './components/recipe';
 
 function App() {
   return (
     <div className="App">
-      hello world Lavanya !!
+      {/* <Login/> */}
+      <Recipe/>
     </div>
   );
 }
