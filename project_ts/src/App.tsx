@@ -2,13 +2,20 @@
 
 import './App.css';
 
-function App() {
+// App.tsx
+import React from 'react';
+import Home from './pages/Home';
+
+
+const App: React.FC = () => {
+  
+
   return (
-    <div className="App">
-      hello
-      amit
+    <div>
+      <Home/>
     </div>
   );
-}
+};
 
 export default App;
+
