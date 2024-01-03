@@ -9,13 +9,13 @@
     --second-color: #ffffff;
     --black-color: #000000;
 }
-body{
-    background-image: url('https://img.freepik.com/free-photo/vintage-old-rustic-cutlery-dark_1220-4886.jpg?w=900&t=st=1703824235~exp=1703824835~hmac=37785667daab438139dea4d4289a323aaa84974a6b4312dc72f5e69b8a3a6052');
+.login{
+     background-image: url('https://img.freepik.com/free-photo/vintage-old-rustic-cutlery-dark_1220-4886.jpg?w=900&t=st=1703824235~exp=1703824835~hmac=37785667daab438139dea4d4289a323aaa84974a6b4312dc72f5e69b8a3a6052');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-   // background-color: #44403c;
+    background-color: #44403c;
 }
 
 .wrapper{
@@ -25,7 +25,7 @@ body{
    justify-content: center;
    align-items: center;
    min-height: 100vh;
-   background-color: rgba(0,0,0,0.2);
+//    background-color: rgba(0,0,0,0.2);
 }
 
 .login_box{
@@ -135,4 +135,7 @@ transition: .3s;
     .login_box{
         padding: 7.5em 1.5em 4em 1.5em;
     }
+}
+.error-message{
+    color:red;
 }
