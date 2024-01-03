@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Neucha&family=Pacifico&family=Poppins:wght@300;400;700&display=swap');
 .recipe-card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -8,6 +8,8 @@
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
+  font-family: 'Kalam', cursive;;
+  font-size: large;
 }
 
 .recipe-card img {
@@ -19,6 +21,7 @@
 }
 
 .recipe-card p {
+  font-family: 'Kalam', cursive;
   font-size: 16px;
   font-weight: bold;
   color: #333;
