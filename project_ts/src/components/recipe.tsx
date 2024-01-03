@@ -20,7 +20,7 @@ const Recipe:React.FC=()=>{
    
     let params = useParams();
     const [details, setDetails] = useState<RecipeDetails | null>(null);
-   const [activeTab, setActiveTab] =useState('instructions');
+   const [activeTab, setActiveTab] =useState('ingredients');
     const getDetails= async() => {
        const data =await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`)
        const detailData =await data.json();
@@ -30,17 +30,17 @@ const Recipe:React.FC=()=>{
 useEffect(() =>{
    getDetails();
 }, [params.name]);
-    return <div> <div className='wrapper'>
+    return  <div className='wrapper'>
    <div >
      <h2> {details?.title}</h2>
-     <img src={details?.image} alt=""></img>
+     <img src={details?.image} alt="" ></img>
    </div>
    <div className='info'>
     <button className={activeTab==='ingredients' ? 'active': ''} onClick={() => setActiveTab('ingredients')}>Ingredients</button>
     <button className={activeTab==='instructions' ? 'active': ''} onClick={() => setActiveTab('instructions')} >See Recipe</button>
     {activeTab === 'instructions' && (<div>
-        {/* <h3 dangerouslySetInnerHTML={{__html:details?.summary || ''}}></h3> */}
-        <h3 dangerouslySetInnerHTML={{__html:details?.instructions || ''}}></h3>
+         <h3 dangerouslySetInnerHTML={{__html:details?.summary || ''}}></h3> 
+        <p><h3 dangerouslySetInnerHTML={{__html:details?.instructions || ''}}></h3></p>
     </div>)}
     {activeTab === 'ingredients' && (<ul>
     {details?.extendedIngredients.map((ingredient)=>(
@@ -48,6 +48,6 @@ useEffect(() =>{
     ))}
 </ul>)}
 
-</div></div></div>
+</div></div>
 }
 export default Recipe;

@@ -3,7 +3,9 @@
     margin-top: 5rem;
     margin-bottom: 5rem;
     display:flex;
-    h3{
+    margin-left: 2rem;
+    margin-right:5rem;
+    h2{
         margin-bottom: 2rem;
     }
     li{
@@ -33,7 +35,8 @@ padding: 1rem 2rem;
 color: black;
 font-weight: bold;
 margin-left: 20 rem;
-
+cursor: pointer;
+margin-right:10px
 }
 .info{
     margin-left: 10rem;
