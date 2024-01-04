@@ -1,50 +1,81 @@
-// Dishes.tsx
-import React, { useEffect, useState } from "react";
-import "../components/Dishes.scss"
-import RecipeCard from "./RecipeCard"; // Update the path based on your project structure
 
+import React, { useEffect, useState } from "react";
+import "../components/Dishes.scss";
+import RecipeCard from "./RecipeCard";
+import SearchBar from "./SearchBar";
+ 
 interface Recipe {
   id: number;
   title: string;
   image: string;
 }
-
+ 
 interface ApiResponse {
   recipes: Recipe[];
 }
-
-function Dishes() {
+ 
+interface DishesProps {
+  searchQuery: string;
+}
+ 
+const Dishes: React.FC<DishesProps> = ({ searchQuery }) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-
+  const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
+  const [userName, setUserName] = useState<string>('');
+ 
+  useEffect(() => {
+    const userNameFromSession = sessionStorage.getItem('userName');
+    if (userNameFromSession) {
+      setUserName(userNameFromSession);
+    }
+  }, []);
   useEffect(() => {
     getDishes();
   }, []);
-
+ 
   const getDishes = async () => {
     try {
-      const api = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=30`);
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=30`
+      );
       if (!api.ok) {
         throw new Error(`Error fetching data. Status: ${api.status}`);
       }
-
+ 
       const data: ApiResponse = await api.json();
       setRecipes(data.recipes);
+      setFilteredRecipes(data.recipes);
       console.log("Fetched data:", data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
+ 
+  const handleSearch = (query: string) => {
+    const lowerCaseQuery = query.toLowerCase();
+    const matchingRecipes = recipes.filter((recipe) =>
+      recipe.title.toLowerCase().includes(lowerCaseQuery)
+    );
+    setFilteredRecipes(matchingRecipes);
+  };
+ 
   return (
-    <div className="dishes">
-      <h2>Popular Recipes</h2>
-      <div className="recipe-card-container">
-        {recipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        ))}
+    <div>
+      <SearchBar onSearch={handleSearch} />
+      <div className="user"><i className="bi bi-person"></i> 
+      <span>{userName}</span>
+      </div>
+      <div className="dishes">
+        <h2>Popular Recipes</h2>
+        <div className="recipe-card-container">
+          {filteredRecipes.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
       </div>
     </div>
   );
-}
-
+};
+ 
 export default Dishes;
+ 

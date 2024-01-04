@@ -1,7 +1,11 @@
-import { BrowserRouter, Routes,Route,Navigate} from 'react-router-dom';
+
+
+import { BrowserRouter,Routes,Route} from 'react-router-dom';
+import Dishes from './components/Dishes';
 import Login from './components/Login';
+
+
 import Recipe from './components/Recipe';
-import Home from './components/Home';
 
 function App() {
 
@@ -9,8 +13,8 @@ function App() {
 <div className="App">
 <BrowserRouter>
 <Routes>
-<Route path = "/login" element={<Login/>}></Route>
-<Route path = "/home" element={<Home/>}></Route>
+<Route path = "/" element={<Login/>}></Route>
+<Route path = "/home" element={<Dishes searchQuery=''/>}></Route>
  <Route path = "/recipe/:name" element={<Recipe/>}></Route> 
 </Routes>
 </BrowserRouter>
@@ -20,4 +24,3 @@ function App() {
 };
 
 export default App;
-

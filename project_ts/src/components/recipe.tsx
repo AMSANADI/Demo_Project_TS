@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
 
 interface ExtendedIngredient {
+      //  properties available in the API response 
     id: number;
     original: string;
-    // Add other properties if available in the API response
+ 
   }
 
 interface RecipeDetails{
@@ -17,7 +18,6 @@ interface RecipeDetails{
 }
 
 const Recipe:React.FC=()=>{
-   
     let params = useParams();
     const [details, setDetails] = useState<RecipeDetails | null>(null);
    const [activeTab, setActiveTab] =useState('ingredients');
@@ -29,6 +29,7 @@ const Recipe:React.FC=()=>{
     }
 useEffect(() =>{
    getDetails();
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [params.name]);
     return  <div className='wrapper'>
    <div >
