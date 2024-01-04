@@ -1,0 +1,146 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    
+}
+:root{
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff;
+    --black-color: #000000;
+}
+.login{
+     background-image: url('https://img.freepik.com/free-photo/vintage-old-rustic-cutlery-dark_1220-4886.jpg?w=900&t=st=1703824235~exp=1703824835~hmac=37785667daab438139dea4d4289a323aaa84974a6b4312dc72f5e69b8a3a6052');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #44403c;
+   height: 100%;
+   overflow: hidden; 
+    
+    
+}
+
+.wrapper{
+    
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+//    min-height: 100vh;
+//    background-color: rgba(0,0,0,0.2);
+}
+
+.login_box{
+    position:relative;
+    width: 450px;
+    backdrop-filter: blur(25px);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 7.5em 2.5em 4em 2.5em;
+    color: var(--second-color);
+}
+.login_header{
+    position:absolute;
+    top:0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    width:140px;
+    height:70px;
+    border-radius: 0 0 20px 20px;
+}
+ .login_header {
+    font-size: 30px;
+    color: var(--primary-color);
+    
+}
+.login_header::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+}
+.login-header::after{
+content:"";
+position: absolute;
+top:0;
+right: -30px;
+width: 30px;
+height: 30px;
+border-top-left-radius: 50%;
+background: transparent;
+}
+.input-field:focus ~ .label,
+.input-field:valid .label{
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+
+}
+i{
+ 
+    position:absolute;
+    top:18px;
+    right: 25px;
+    font-size: 20px;
+}
+.input_box{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+.input-field{
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--second-color);
+    padding-inline: 20px 50px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+}
+
+#user{
+    margin-bottom: 10px;
+}
+.input-submit{
+width: 100%;
+height: 50px;
+background: #ececec;
+font-size: 16px;
+font-weight: 500;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+transition: .3s;
+}
+.input-submit:hover{
+    background: var(--second-color);
+}
+@media only screen and (max-width: 564px){
+    .wrapper{
+        padding: 20px;
+    }
+    .login_box{
+        padding: 7.5em 1.5em 4em 1.5em;
+    }
+}
+.error-message{
+    color:red;
+}

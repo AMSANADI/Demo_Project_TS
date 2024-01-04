@@ -1,0 +1,50 @@
+
+.wrapper{
+   
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    display:flex;
+    margin-left: 2rem;
+    margin-right:5rem;
+    img{
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    h2{
+        margin-bottom: 2rem;
+    }
+    li{
+        font-size: 1.2rem;
+        line-height: 2.5rem;
+    }
+    ul{
+        margin-top: 2rem;
+    }
+    .active{
+        background: linear-gradient(35deg, #494949, #313131);
+        color: white;
+    }
+    
+}
+
+
+button{
+
+ background: transparent;
+ font-size: 16px;
+font-weight: 500;
+border: 2px solid black;
+border-radius: 20px;
+transition: .3s;
+padding: 0.7rem 1.5rem;
+color: black;
+font-weight: bold;
+margin-left: 20 rem;
+margin-bottom: 1rem;
+cursor: pointer;
+margin-right:10px
+}
+.info{
+    margin-left: 10rem;
+    width: 500px;
+    height: 500px;
+}
