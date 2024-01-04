@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../components/Dishes.scss";
 import RecipeCard from "./RecipeCard";
 import SearchBar from "./SearchBar";
+import DisplayName from "./DisplayName";
 
 interface Recipe {
   id: number;
@@ -56,6 +57,7 @@ const Dishes: React.FC<DishesProps> = ({ searchQuery }) => {
 
   return (
     <div>
+      <DisplayName/>
       <SearchBar onSearch={handleSearch} />
       <div className="dishes">
         <h2>Popular Recipes</h2>

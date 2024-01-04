@@ -1,14 +1,21 @@
-import React from 'react'
- 
+// DisplayName.tsx
+import React from 'react';
+import "../components/DisplayName.scss"
+
 interface DisplayNameProps {
-    userName: string;
-  }
-  const DisplayName: React.FC<DisplayNameProps> = (props) => {
-  return (
-    <div style={{ position: 'absolute', top: 10, right: 10 }}>
-      <p>Hello: {props.userName}!</p>
-    </div>
-  )
+  // Remove userName from props since it will be retrieved from sessionStorage
 }
- 
-export default DisplayName
+
+const DisplayName: React.FC<DisplayNameProps> = () => {
+  // Retrieve the userName from sessionStorage
+  const userName = sessionStorage.getItem('userName');
+
+  return (
+    <div className='userName'>
+      {/* Check if userName is available before displaying */}
+      {userName && <p>Hello: {userName}!</p>}
+    </div>
+  );
+}
+
+export default DisplayName;
