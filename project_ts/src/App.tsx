@@ -1,20 +1,27 @@
+ 
+import { BrowserRouter, Routes,Route} from 'react-router-dom';
 
-import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
-import Dishes from "./components/Dishes";
-const Home: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
+ 
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
+import Recipe from './components/Recipe';
+import Login from './components/Login';
+import Dishes from './components/Dishes';
 
+ 
+function App() {
+ 
   return (
-    <div>
-      <SearchBar onSearch={handleSearch} />
-      <Dishes searchQuery={searchQuery} />
+<div className="App">
+<BrowserRouter>
+<Routes>
+<Route path = "/" element={<Login/>}></Route>
+<Route path = "/home" element={<Dishes searchQuery=''/>}></Route>
+ <Route path = "/recipe/:name" element={<Recipe/>}></Route>
+</Routes>
+</BrowserRouter>
+ 
     </div>
   );
 };
-
-export default Home;
+ 
+export default App;
