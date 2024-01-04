@@ -1,4 +1,4 @@
-// SearchBar.tsx
+
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import '../components/SearchBar.scss';

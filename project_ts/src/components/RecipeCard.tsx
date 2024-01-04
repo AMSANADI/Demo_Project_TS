@@ -17,8 +17,9 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ recipe }) => {
   return (
     <div className="recipe-card">
       <Link to ={"/recipe/" +recipe.id}>
-      <img src={recipe.image} alt={recipe.title} style={{ width: "300px", height: "300px" }} /></Link>
-      <span>{recipe.title}</span>
+      <img src={recipe.image} alt={recipe.title} style={{ width: "300px", height: "300px" }} />
+      </Link>
+      <p>{recipe.title}</p>
     </div>
   );
 };
