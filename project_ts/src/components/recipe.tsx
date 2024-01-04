@@ -31,24 +31,29 @@ useEffect(() =>{
    getDetails();
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [params.name]);
-    return  <div className='wrapper'>
-   <div >
-     <h2> {details?.title}</h2>
-     <img src={details?.image} alt="" ></img>
-   </div>
-   <div className='info'>
-    <button className={activeTab==='ingredients' ? 'active': ''} onClick={() => setActiveTab('ingredients')}>Ingredients</button>
-    <button className={activeTab==='instructions' ? 'active': ''} onClick={() => setActiveTab('instructions')} >See Recipe</button>
-    {activeTab === 'instructions' && (<div>
-         <h3 dangerouslySetInnerHTML={{__html:details?.summary || ''}}></h3> 
-        <p><h3 dangerouslySetInnerHTML={{__html:details?.instructions || ''}}></h3></p>
-    </div>)}
-    {activeTab === 'ingredients' && (<ul>
-    {details?.extendedIngredients.map((ingredient)=>(
-        <li key={ingredient.id}>{ingredient.original}</li>
-    ))}
-</ul>)}
 
-</div></div>
+    return  (
+    
+    <div className='wrapper'>
+        <div >
+                <h2> {details?.title}</h2>
+                <img src={details?.image} alt="" ></img>
+        </div>
+   <div className='info'>
+            <button className={activeTab==='ingredients' ? 'active': ''} onClick={() => setActiveTab('ingredients')}>Ingredients</button>
+            <button className={activeTab==='instructions' ? 'active': ''} onClick={() => setActiveTab('instructions')} >See Recipe</button>
+                {activeTab === 'instructions' && (<div>
+            <h3 dangerouslySetInnerHTML={{__html:details?.summary || ''}}></h3> 
+            <p><h3 dangerouslySetInnerHTML={{__html:details?.instructions || ''}}></h3></p>
+    </div>)}
+            {activeTab === 'ingredients' && (<ul>
+            {details?.extendedIngredients.map((ingredient)=>(
+            <li key={ingredient.id}>{ingredient.original}</li>
+            ))}
+    </ul>)}
+
+        </div>
+    </div>
+    )
 }
 export default Recipe;
